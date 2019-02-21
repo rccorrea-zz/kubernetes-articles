@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mypod-service
+spec:
+  ports:
+  - port: 80
+    targetPort: golang-port
+    protocol: TCP
+  selector:
+    app: firstapp
+  type: LoadBalancer
