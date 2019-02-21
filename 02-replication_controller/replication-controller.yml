@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: mypod-controller
+spec:
+  replicas: 2
+  selector:
+    app: firstapp
+  template:
+    metadata:
+      labels:
+        app: firstapp
+    spec:
+      containers:
+      - name: mycontainer
+        image: ricardocorrea/golang-example-kubernetes:0.2
+        ports:
+        - name: golang-port
+          containerPort: 8080
